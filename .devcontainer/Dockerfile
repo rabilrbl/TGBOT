@@ -25,6 +25,7 @@ RUN sudo apt-get install -y fish \
         && fish -c "fisher install jethrokuan/z" \
         && fish -c "fisher install jethrokuan/fzf" \
         && fish -c "fisher install oh-my-fish/theme-bobthefish" \
+        && set -g theme_nerd_fonts yes \
         && fish -c "fisher install oh-my-fish/plugin-peco"
 
 SHELL ["fish", "-c"]
