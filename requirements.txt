@@ -1,0 +1,4 @@
+asyncio==3.4.3
+EdgeGPT==0.0.51
+tls-client==0.1.8
+websockets==10.4
