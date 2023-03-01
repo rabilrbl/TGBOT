@@ -20,7 +20,7 @@ RUN sudo apt-get install curl docker -y
 
 # Install and configure fish shell
 RUN sudo apt-get install -y fish \
-        && sudo chsh -s /usr/bin/fish kernelb \
+        && sudo chsh -s /usr/bin/fish rabil \
         && fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher" \
         && fish -c "fisher install jethrokuan/z" \
         && fish -c "fisher install jethrokuan/fzf"
