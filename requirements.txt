@@ -2,3 +2,11 @@ asyncio==3.4.3
 EdgeGPT==0.0.51
 tls-client==0.1.8
 websockets==10.4
+asyncio==3.4.3
+EdgeGPT==0.0.51
+pyaes==1.6.1
+Pyrogram==2.0.100
+PySocks==1.7.1
+TgCrypto==1.2.5
+tls-client==0.1.8
+websockets==10.4
