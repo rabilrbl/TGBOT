@@ -207,7 +207,7 @@ async def BingAI(client, message: Message):
 async def GPTAI(client, message: Message):
     if not message.reply_to_message:
         gptBot.reset_chat()
-    prev_text = ""
+    prev_text: str = ""
     msg = await message.reply_text("Wait...", reply_to_message_id=message.id)
     last_edit = datetime.datetime.now().timestamp() * 1000
     msg_full = False
@@ -234,12 +234,18 @@ async def GPTAI(client, message: Message):
                 except MessageTooLong:
                     prev_text = bot_message
                     msg_full = True
+                except FloodWait as e:
+                    print(f"FloodWait Occured: {e.value}")
+                    await asyncio.sleep(e.value)
+                    prev_text += bot_message
                 last_edit = datetime.datetime.now().timestamp() * 1000
             else:
                 prev_text += bot_message
     # Remaning text
-    if prev_text and prev_text != message.text:
+    if prev_text and prev_text != msg.text:
         try:
+            await msg.edit_text(prev_text, disable_web_page_preview=True)
+        except MessageTooLong:
             await message.reply_text(prev_text.removeprefix(msg.text), disable_web_page_preview=True, reply_to_message_id=msg.id)  
         except MessageNotModified:
             pass
