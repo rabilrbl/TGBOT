@@ -1,27 +1,16 @@
-FROM python:latest
+FROM python:latest as builder
 
-ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update; apt-get upgrade -y
 
-SHELL ["bash", "-c"]
+#######################################################################
 
-RUN apt-get update && \
-      apt-get -y install sudo
+LABEL fly_launch_runtime="python"
 
-RUN useradd -m mahiner && echo "mahiner:mahiner" | chpasswd && adduser mahiner sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-USER mahiner
-
-WORKDIR /home/mahiner
-
-RUN sudo apt-get update && sudo apt-get upgrade -y
-
-RUN pip3 install --upgrade pip
-
-WORKDIR /home/mahiner/Projects
+RUN mkdir -p /app
+WORKDIR /app
 
 COPY . .
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
-CMD ["python3", "main.py"]
+CMD [ "python3", "main.py" ]
