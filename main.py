@@ -238,7 +238,7 @@ async def GPTAI(client, message: Message):
             else:
                 prev_text += bot_message
     # Remaning text
-    if prev_text:
+    if prev_text and prev_text != message.text:
         try:
             await message.reply_text(prev_text.removeprefix(msg.text), disable_web_page_preview=True, reply_to_message_id=msg.id)  
         except MessageNotModified:
