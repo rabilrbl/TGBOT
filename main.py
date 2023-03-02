@@ -240,11 +240,9 @@ async def GPTAI(client, message: Message):
     # Remaning text
     if prev_text:
         try:
-            await msg.edit_text(msg.text + prev_text.removeprefix(msg.text), disable_web_page_preview=True)
-        except MessageTooLong:
             await message.reply_text(prev_text.removeprefix(msg.text), disable_web_page_preview=True, reply_to_message_id=msg.id)  
         except MessageNotModified:
-            pass          
+            pass
 
 
 @app.on_message()
