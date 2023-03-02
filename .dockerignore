@@ -1,3 +1,8 @@
 TGBOT.*
 cookies.json
 .env*
+README.md
+LICENSE
+fly.toml
+.github/
+.devcontainer/
