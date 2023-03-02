@@ -101,12 +101,9 @@ async def chat_mode(client, message):
 
 # Command to delete a message
 @app.on_message(filters.command("del"))
-async def delete(client, message):
-    if len(message.command) < 2:
-        await message.reply_text("Usage: /del [message_id] or /del [reply_to_message]")
-        return
+async def delete(client, message: Message):
     if message.reply_to_message:
-        msg_id = message.reply_to_message.message_id
+        msg_id = message.reply_to_message.id
     else:
         msg_id = message.text.split(None, 1)[1]
     try:
@@ -114,22 +111,7 @@ async def delete(client, message):
     except Exception as e:
         await message.reply_text(str(e))
         return
-    await message.reply_text("Message deleted")
-
-
-# Command to delete last n messages
-@app.on_message(filters.command("ndel"))
-async def ndelete(client, message):
-    if len(message.command) < 2:
-        await message.reply_text("Usage: /ndel [n]")
-        return
-    n = int(message.text.split(None, 1)[1])
-    try:
-        await client.delete_messages(message.chat.id, message.message_id, n)
-    except Exception as e:
-        await message.reply_text(str(e))
-        return
-    await message.reply_text(f"Last {n} messages deleted")
+    await message.delete()
 
 
 # Command to give details of replied message
@@ -140,7 +122,7 @@ async def msginfo(client, message):
         return
     msg = message.reply_to_message
     text = f"""
-**Message ID**: `{msg.message_id}`
+**Message ID**: `{msg.id}`
 **From**: `{msg.from_user.id}`
 **Chat ID**: `{msg.chat.id}`
 **Date**: `{msg.date}`
@@ -228,10 +210,7 @@ async def GPTAI(client, message: Message):
     msg_full = False
     response = gptBot.ask(message.text)
     async for data in response:
-        if not msg_full:
-            bot_message = data["message"][len(prev_text) :]
-        else:
-            bot_message = data["message"]
+        bot_message = data["message"][len(prev_text) :]
 
         if bot_message:
             if datetime.datetime.now().timestamp() * 1000 - last_edit > 500:
@@ -241,16 +220,16 @@ async def GPTAI(client, message: Message):
                         prev_text = ""
                     else:
                         msg = await message.reply_text(
-                            prev_text + bot_message,
+                            bot_message,
                             disable_web_page_preview=True,
-                            reply_to_message_id=message.id,
+                            reply_to_message_id=msg.id,
                         )
                         msg_full = False
                         prev_text = ""
                 except MessageNotModified:
                     prev_text = ""
                 except MessageTooLong:
-                    prev_text = bot_message[len(prev_text) :]
+                    prev_text = bot_message
                     msg_full = True
                 last_edit = datetime.datetime.now().timestamp() * 1000
             else:
@@ -260,7 +239,7 @@ async def GPTAI(client, message: Message):
         try:
             await msg.edit_text(msg.text + prev_text, disable_web_page_preview=True)
         except MessageTooLong:
-            await message.reply_text(prev_text, disable_web_page_preview=True, reply_to_message_id=message.id)             
+            await message.reply_text(prev_text.removeprefix(msg.text), disable_web_page_preview=True, reply_to_message_id=msg.id)             
 
 
 @app.on_message()
