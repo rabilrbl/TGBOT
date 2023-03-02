@@ -74,8 +74,8 @@ If you like this project, please consider donating with [GitHub Sponsors](https:
 
 ## Credits
 
-- [ChatGPT](https://github.com/acheong08/ChatGPT) by @acheong08
-- [EdgeGPT](https://github.com/acheong08/EdgeGPT) by @acheong08
+- [ChatGPT](https://github.com/acheong08/ChatGPT) for the ChatGPT Integration.
+- [EdgeGPT](https://github.com/acheong08/EdgeGPT) for the BingAI Integration.
 
 ## Disclaimer
 
