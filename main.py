@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-import os, random, re, asyncio, datetime, aiohttp
+import os, random, re, json, datetime, aiohttp
 from EdgeGPT import Chatbot as BingChatbot
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import (
@@ -18,7 +18,7 @@ app = Client(
 
 CHAT_MODE = "gpt"
 
-edgeGPT = BingChatbot(cookiePath="cookies.json")
+edgeGPT = BingChatbot(cookies=json.loads(os.environ.get("BING_COOKIES")))
 gptBot = GPTChatbot(config={"email": os.environ.get("OPENAI_EMAIL"), "password": os.environ.get("OPENAI_PASSWORD")})
 
 AUTHORIZED_USERS = os.environ.get("AUTHORIZED_USERS").split(",")
