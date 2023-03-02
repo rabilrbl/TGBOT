@@ -18,8 +18,9 @@ app = Client(
 
 CHAT_MODE = "gpt"
 
+BING_COOKIES = json.loads(os.environ.get("BING_COOKIES"))
 
-edgeGPT = BingChatbot(cookiePath="cookies.json")
+edgeGPT = BingChatbot(cookies=BING_COOKIES)
 gptBot = GPTChatbot(config={"email": os.environ.get("OPENAI_EMAIL"), "password": os.environ.get("OPENAI_PASSWORD")})
 
 AUTHORIZED_USERS = os.environ.get("AUTHORIZED_USERS").split(",")
