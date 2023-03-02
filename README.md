@@ -10,6 +10,8 @@ Telegram bot that integrates both ChatGPT and BingAI, combining two different ar
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
   - [Environment Variables](#environment-variables)
+  - [Usage](#usage)
+    - [Bot Commands](#bot-commands)
   - [Reporting Bugs and Issues](#reporting-bugs-and-issues)
   - [Contributing](#contributing)
   - [Support](#support)
@@ -55,6 +57,25 @@ python3 main.py
 | `OPENAI_EMAIL` | OpenAI account email address. *This does not work with google or microsoft accounts*. | Yes |
 | `OPENAI_PASSWORD` | OpenAI account password | Yes |
 
+## Usage
+
+**Send any message to the bot to start a conversation with AI based on the current chat mode.**
+
+*Reply to a message to continue the conversation with all the previous messages in the thread. Otherwise, the conversation will start from the beginning.*
+
+### Bot Commands
+
+| Command | Description |
+| --- | --- |
+| `/start` | Start the bot |
+| `/help` | Get help |
+| `/cm` | Get current chat mode |
+| `/cm [mode]` | Set chat mode. Either `ChatGPT` as `gpt` (default) or `BingAI` as `bing` |
+| `/ping` | Check if the bot is alive |
+| `/echo [text]` | Echo the text |
+| `/msginfo` | Get information about the message |
+| `/del` | Delete any message with reply or message ID |
+| `/info` | Get your user ID and chat ID |
 
 ## Reporting Bugs and Issues
 
