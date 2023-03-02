@@ -187,10 +187,10 @@ async def BingAI(client, message: Message):
             try:
                 # Automatically edit the message until it exceeds max message length then send new messages
                 if not msg_full:
-                    msg = await msg.edit_text(pending_text+response, disable_web_page_preview=True)
+                    msg = await msg.edit_text(response, disable_web_page_preview=True)
                 else:
                     msg = await message.reply_text(
-                        pending_text+response,
+                        response,
                         disable_web_page_preview=True,
                         reply_to_message_id=message.id,
                     )
