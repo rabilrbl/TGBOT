@@ -1,6 +1,22 @@
 # TGBOT
 
-Telegram bot that integrates both ChatGPT and BingAI, combining two different artificial intelligence technologies to provide a more comprehensive and accurate response to user queries.
+Telegram bot that integrates both ChatGPT and BingAI, combining two different artificial intelligence technologies to provide a more comprehensive and accurate response.
+
+### Table of Contents
+
+- [TGBOT](#tgbot)
+    - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+  - [Environment Variables](#environment-variables)
+  - [Reporting Bugs and Issues](#reporting-bugs-and-issues)
+  - [Contributing](#contributing)
+  - [Support](#support)
+  - [License](#license)
+  - [Credits](#credits)
+  - [Disclaimer](#disclaimer)
+  - [Contact](#contact)
 
 ## Installation
 
