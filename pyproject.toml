@@ -48,7 +48,7 @@ rfc3986 = "1.5.0"
 
 # Create run script to run main.py
 [tool.poetry.scripts]
-tgbot = "tgbot.main:main"
+tgbot = "tgbot.main:start_bot"
 
 [build-system]
 requires = ["poetry-core"]
