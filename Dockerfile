@@ -1,8 +1,9 @@
 FROM python:latest as builder
 
-RUN apt-get update; apt-get upgrade -y
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Kolkata
 
-#######################################################################
+RUN apt-get update; apt-get upgrade -y
 
 LABEL fly_launch_runtime="python"
 
