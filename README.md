@@ -41,7 +41,7 @@ poetry install
 
 3. Create a new Telegram bot using [@BotFather](https://t.me/BotFather) and copy the token
 4. Set the environment variables as mentioned in the [Environment Variables](#environment-variables) section
-5. Run the bot
+5. Run the bot with the following command, if you are developing the bot, you can use `poetry shell` to activate the virtual environment and then run the bot with `python main.py`
 
 ```sh
 poetry run python main.py
