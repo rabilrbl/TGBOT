@@ -43,7 +43,6 @@ urllib3 = "^1.26.14"
 wcwidth = "^0.2.6"
 websockets = "^10.4"
 yarl = "^1.8.2"
-rfc3986 = "^1.5.0"
 
 # Write black as a dev dependency
 [tool.poetry.dev-dependencies]
