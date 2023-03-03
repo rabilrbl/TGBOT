@@ -2,10 +2,10 @@
 
 Telegram bot that integrates both ChatGPT and BingAI, combining two different artificial intelligence technologies to provide a more comprehensive and accurate response.
 
-### Table of Contents
+## Table of Contents
 
 - [TGBOT](#tgbot)
-    - [Table of Contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
