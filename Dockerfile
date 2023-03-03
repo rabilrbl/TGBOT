@@ -7,11 +7,16 @@ RUN apt-get update; apt-get upgrade -y
 
 LABEL fly_launch_runtime="python"
 
+# Install poetry separated from system interpreter
+RUN curl -sSL https://install.python-poetry.org | python3 - \
+    && poetry config virtualenvs.create false \
+    && poetry config experimental.new-installer false
+
 RUN mkdir -p /app
 WORKDIR /app
 
 COPY . .
 
-RUN pip install -r requirements.txt
+RUN poetry install --no-dev --no-root
 
-CMD [ "python3", "main.py" ]
+CMD [ "poetry", "run", "python", "main.py" ]

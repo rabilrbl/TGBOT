@@ -148,4 +148,5 @@ async def chatbot(client, message: Message):
             pass
 
 
-app.run()
+def start():
+    app.run()

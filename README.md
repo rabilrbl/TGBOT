@@ -25,7 +25,9 @@ Telegram bot that integrates both ChatGPT and BingAI, combining two different ar
 ### Prerequisites
 
 - Python 3.11+
-- Pip or any other package manager for Python
+- [Poetry](https://python-poetry.org/)
+
+We use [Poetry](https://python-poetry.org/) to manage dependencies and virtual environments. Please install it before proceeding.
 
 ### Setup
 
@@ -33,16 +35,16 @@ Telegram bot that integrates both ChatGPT and BingAI, combining two different ar
   
 2. Install the dependencies
 
-```bash
-pip install -r requirements.txt
+```sh
+poetry install
 ```
 
 3. Create a new Telegram bot using [@BotFather](https://t.me/BotFather) and copy the token
 4. Set the environment variables as mentioned in the [Environment Variables](#environment-variables) section
 5. Run the bot
 
-```bash
-python3 main.py
+```sh
+poetry run python main.py
 ```
 
 ## Environment Variables

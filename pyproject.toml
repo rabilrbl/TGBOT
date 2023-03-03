@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "tgbot"
+version = "0.1.0"
+description = "Telegram bot that integrates both ChatGPT and BingAI, combining two different artificial intelligence technologies to provide a more comprehensive and accurate response."
+authors = ["Mohammed Rabil <rabil@techie.com>"]
+license = "GNU AGPL V3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiohttp = "^3.8.4"
+aiosignal = "^1.3.1"
+anyio = "^3.6.2"
+async-timeout = "^4.0.2"
+asyncio = "^3.4.3"
+attrs = "^22.2.0"
+black = "^23.1.0"
+certifi = "^2022.12.7"
+charset-normalizer = "^3.0.1"
+click = "^8.1.3"
+edgegpt = {git = "https://github.com/acheong08/EdgeGPT.git"}
+frozenlist = "^1.3.3"
+h11 = "^0.14.0"
+httpcore = "^0.16.3"
+httpx = "^0.23.3"
+idna = "^3.4"
+multidict = "^6.0.4"
+mypy-extensions = "^1.0.0"
+openaiauth = "^0.3.2"
+packaging = "^23.0"
+pathspec = "^0.11.0"
+platformdirs = "^3.0.0"
+prompt-toolkit = "^3.0.38"
+pyaes = "^1.6.1"
+pyrogram = "^2.0.100"
+pysocks = "^1.7.1"
+requests = "^2.28.2"
+revchatgpt = "^3.0.5"
+sniffio = "^1.3.0"
+socksio = "^1.0.0"
+tgcrypto = "^1.2.5"
+tls-client = "^0.1.8"
+urllib3 = "^1.26.14"
+wcwidth = "^0.2.6"
+websockets = "^10.4"
+yarl = "^1.8.2"
+
+# Add run command for "python3 main.py"
+[tool.poetry.scripts]
+start = "tgbot.main:start"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
