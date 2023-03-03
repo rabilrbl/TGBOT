@@ -8,9 +8,13 @@ RUN apt-get update; apt-get upgrade -y
 LABEL fly_launch_runtime="python"
 
 # Install poetry separated from system interpreter
-RUN curl -sSL https://install.python-poetry.org | python3 - \
-    && poetry config virtualenvs.create false \
-    && poetry config experimental.new-installer false
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+# Add ~/.local/bin to PATH
+ENV PATH="/root/.local/bin:${PATH}"
+
+# Poetry config
+RUN poetry config virtualenvs.create false
 
 RUN mkdir -p /app
 WORKDIR /app
