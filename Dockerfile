@@ -24,4 +24,4 @@ COPY . .
 
 RUN poetry install --only main --no-root
 
-CMD [ "poetry", "run", "python", "main.py" ]
+CMD [ "poetry", "run", "tgbot" ]

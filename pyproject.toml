@@ -46,6 +46,10 @@ websockets = "^10.4"
 yarl = "^1.8.2"
 rfc3986 = "1.5.0"
 
+# Create run script to run main.py
+[tool.poetry.scripts]
+tgbot = "tgbot.main:main"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

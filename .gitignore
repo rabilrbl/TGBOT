@@ -2,3 +2,4 @@ TGBOT.*
 cookies.json
 .env*
 __pycache__
+dist/

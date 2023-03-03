@@ -7,3 +7,4 @@ fly.toml
 .github/
 .devcontainer/
 __pycache__
+dist/

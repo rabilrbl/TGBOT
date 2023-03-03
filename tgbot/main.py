@@ -4,8 +4,8 @@ import random
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from libs.bingai import BingAI
-from libs.chatgpt import ChatGPT
+from tgbot.libs.bingai import BingAI
+from tgbot.libs.chatgpt import ChatGPT
 
 app = Client(
     "TGBOT",
