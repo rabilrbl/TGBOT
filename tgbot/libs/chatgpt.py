@@ -39,7 +39,7 @@ async def ChatGPT(_, message: Message):
                         prev_text = ""
                     else:
                         msg = await message.reply_text(
-                            bot_message,
+                            prev_text + bot_message,
                             disable_web_page_preview=True,
                             reply_to_message_id=msg.id,
                         )
