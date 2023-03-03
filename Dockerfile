@@ -14,14 +14,13 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/root/.local/bin:${PATH}"
 
 # Poetry config
-RUN poetry config virtualenvs.create false \
-    && poetry config experimental.new-installer false
+RUN poetry config virtualenvs.create false
 
 RUN mkdir -p /app
 WORKDIR /app
 
 COPY . .
 
-RUN poetry install --no-dev --no-root
+RUN poetry install --only main --no-root
 
-CMD [ "python3", "main.py" ]
+CMD [ "poetry", "run", "python", "main.py" ]
