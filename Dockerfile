@@ -13,7 +13,8 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 # Add ~/.local/bin to PATH
 ENV PATH="/root/.local/bin:${PATH}"
 
-# Poetry config
+# Poetry config: https://python-poetry.org/docs/configuration/
+# As we are on docker, we don't need virtual environments
 RUN poetry config virtualenvs.create false
 
 RUN mkdir -p /app
