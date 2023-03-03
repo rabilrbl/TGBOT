@@ -1,6 +1,5 @@
 import os
 import random
-import asyncio
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -148,5 +147,5 @@ async def chatbot(client, message: Message):
         case _:
             pass
 
-async def start_bot():
-    app.run()
+
+app.run()
