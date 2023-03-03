@@ -24,7 +24,7 @@ Telegram bot that integrates both ChatGPT and BingAI, combining two different ar
 
 ### Prerequisites
 
-- Python 3.11+
+- Python 3.10+
 - [Poetry](https://python-poetry.org/)
 
 We use [Poetry](https://python-poetry.org/) to manage dependencies and virtual environments. Please install it before proceeding.
