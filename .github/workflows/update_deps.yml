@@ -27,6 +27,7 @@ jobs:
       - name: Push changes
         run: |
           git add pyproject.toml poetry.lock
+          git commit -m "Update dependencies on $(date)"
           git push origin main
       
   
