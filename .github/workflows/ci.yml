@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+  repository_dispatch:
+    types: [deploy]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
