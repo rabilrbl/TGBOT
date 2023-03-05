@@ -33,14 +33,14 @@ async def BingAI(_, message: Message):
         # Group 1: [1]:
         # Group 2: https://www.alliedmarketresearch.com/deep-learning-market
         # Group 3: "Deep Learning Market Size, Share | Research Report - 2030"
-        ref_link_regex = re.compile(r"\[(\d+)\]:\s(https?:\/\/\S+)\s\"(.*)\"")
-        try:
-            # then remove the pattern from the response
-            response = ref_link_regex.sub("", response)
-            # remove annoying brackets around numbers
-            response = re.sub(r"\[\^?\d+\^?\]", "", response)
-        except TypeError:
-            pass
+        # ref_link_regex = re.compile(r"\[(\d+)\]:\s(https?:\/\/\S+)\s\"(.*)\"")
+        # try:
+        #     # then remove the pattern from the response
+        #     response = ref_link_regex.sub("", response)
+        #     # remove annoying brackets around numbers
+        #     response = re.sub(r"\[\^?\d+\^?\]", "", response)
+        # except TypeError:
+        #     pass
 
         # Check if existing message is same as new message
         if response and datetime.datetime.now().timestamp() * 1000 - last_edit > 300:
