@@ -34,10 +34,10 @@ async def BingAI(_, message: Message):
         # Group 1: [1]:
         # Group 2: https://www.alliedmarketresearch.com/deep-learning-market
         # Group 3: "Deep Learning Market Size, Share | Research Report - 2030"
-        # ref_link_regex = re.compile(r"\[(\d+)\]:\s(https?:\/\/\S+)\s\"(.*)\"")
+        ref_link_regex = re.compile(r"\[(\d+)\]:\s(https?:\/\/\S+)\s\"(.*)\"")
         try:
             # then remove the pattern from the response
-            # response = ref_link_regex.sub("", response)
+            response = ref_link_regex.sub("(\g<1>): [\g<3>](\g<2>)", response)
             # remove annoying brackets around numbers and replace them by ($1)
             response = re.sub(r"\[\^?(\d+)\^?\]", r"(\g<1>)", response)
         except TypeError:
