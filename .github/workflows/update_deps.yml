@@ -21,13 +21,8 @@ jobs:
       - name: Setup poetry
         uses: Gr1N/setup-poetry@v8
         
-      - uses: actions/cache@v2
-        with:
-          path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
-        
       - name: Poetry Update
-        run: poetry update
+        run: poetry update --lock
         
       - name: Push changes
         run: |
