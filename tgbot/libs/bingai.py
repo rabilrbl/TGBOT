@@ -43,7 +43,7 @@ async def BingAI(_, message: Message):
             pass
 
         # Check if existing message is same as new message
-        if datetime.datetime.now().timestamp() * 1000 - last_edit > 300:
+        if response and datetime.datetime.now().timestamp() * 1000 - last_edit > 300:
             try:
                 # Automatically edit the message until it exceeds max message length then send new messages
                 if not msg_full:
