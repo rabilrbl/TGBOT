@@ -1,0 +1,30 @@
+name: Update Dependencies
+on:
+  schedule:
+    - cron: "30 22 */2 * *"
+  workflow_dispatch:
+  
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'poetry'
+        
+      - name: Poetry Update
+        run: poetry update
+        
+      - name: Push changes
+        run: |
+          git add pyproject.toml poetry.lock
+          git push origin main
+      
+  
