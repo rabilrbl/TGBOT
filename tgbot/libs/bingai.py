@@ -39,7 +39,7 @@ async def BingAI(_, message: Message):
             # then remove the pattern from the response
             # response = ref_link_regex.sub("", response)
             # remove annoying brackets around numbers and replace them by ($1)
-            response = re.sub(r"\[\^?(\d+)\^?\]", r"\g<1>", response)
+            response = re.sub(r"\[\^?(\d+)\^?\]", r"(\g<1>)", response)
         except TypeError:
             pass
 
