@@ -1,0 +1,44 @@
+name: Update Dependencies
+on:
+  schedule:
+    - cron: "30 22 */2 * *"
+  workflow_dispatch:
+  
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Setup poetry
+        uses: Gr1N/setup-poetry@v8
+        
+      - name: Poetry Update
+        run: poetry update --lock
+        
+      - name: Push changes
+        id: push
+        run: |
+          git config --global user.email ${{ github.repository_owner_id }}+${{ github.repository_owner }}@users.noreply.github.com
+          git config --global user.name ${{ github.repository_owner }}
+          git add poetry.lock
+          (git commit -m "Update dependencies on $(date)" && git push origin main) || true
+          git diff --name-only HEAD origin/main
+          echo "changes=$(git diff --name-only HEAD origin/main)" >> $GITHUB_OUTPUT
+          
+      - name: Trigger deploy
+        uses: peter-evans/repository-dispatch@v2.1.1
+        if: ${{ steps.push.outputs.changes != '' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: deploy
+      
+  

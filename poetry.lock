@@ -395,8 +395,8 @@ files = [
 
 [[package]]
 name = "EdgeGPT"
-version = "0.0.52"
-description = "Reverse engineered Edge Chat API"
+version = "0.0.55"
+description = ""
 category = "main"
 optional = false
 python-versions = "*"
@@ -412,7 +412,7 @@ websockets = "*"
 type = "git"
 url = "https://github.com/acheong08/EdgeGPT.git"
 reference = "HEAD"
-resolved_reference = "9e4e97bf318d1c0d9199d2f991a088ab1f57d11f"
+resolved_reference = "bfa470dfe0d33c844c19fe0b9ffa85334368d804"
 
 [[package]]
 name = "filelock"
@@ -1050,18 +1050,17 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "revchatgpt"
-version = "3.0.8"
+version = "3.1.1"
 description = "ChatGPT is a reverse engineering of OpenAI's ChatGPT API"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "revChatGPT-3.0.8-py3-none-any.whl", hash = "sha256:240d0b44248b6334ed00e2fc9d4dedeff10b6aae30fb5a297b9a02f55f48486f"},
-    {file = "revChatGPT-3.0.8.tar.gz", hash = "sha256:c0515c74eb7f904608eb2eeee833973d1dcc1841a3cc8ae798b033834f229d5b"},
+    {file = "revChatGPT-3.1.1-py3-none-any.whl", hash = "sha256:48aa6c571d281cca4c319c03846a8e913eeef1047c7949051acfd204cd278023"},
+    {file = "revChatGPT-3.1.1.tar.gz", hash = "sha256:c5b7fb1b73581511bd491dbe1b2df9363c9ce5aef297e8046ebbe400b4d5e95d"},
 ]
 
 [package.dependencies]
-asyncio = "*"
 httpx = {version = "*", extras = ["socks"]}
 OpenAIAuth = "0.3.2"
 prompt-toolkit = "*"
