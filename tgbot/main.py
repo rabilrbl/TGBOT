@@ -14,6 +14,34 @@ app = Client(
     api_hash=os.environ.get("API_HASH"),
 )
 
+# Create a middleware to check if environment variables are set 
+# if not, bot will ask to set them
+@app.on_message(filters.private & ~filters.me)
+async def check_env(client, message: Message):
+    if not os.environ.get("AUTHORIZED_USERS"):
+        await message.reply_text("AUTHORIZED_USERS is not set. Please send /setvar AUTHORIZED_USERS")
+        await message.stop_propagation()
+    if not os.environ.get("BING_COOKIES"):
+        await message.reply_text("BING_COOKIES is not set. Please send /setvar BING_COOKIES")
+        await message.stop_propagation()
+    if not os.environ.get("OPENAI_EMAIL"):
+        await message.reply_text("OPENAI_EMAIL is not set. Please send /setvar OPENAI_EMAIL")
+        await message.stop_propagation()
+    if not os.environ.get("OPENAI_PASSWORD"):
+        await message.reply_text("OPENAI_PASSWORD is not set. Please send /setvar OPENAI_PASSWORD")
+        await message.stop_propagation()
+
+
+@app.on_message(filters.command("setvar"))
+async def setvar(client, message: Message):
+    if len(message.command) < 2:
+        await message.reply_text("Usage: /setvar [variable name]")
+        return
+    var = message.command[1]
+    value = client.ask(message.chat.id, f"Enter value for {var}")
+    os.environ[var] = value
+
+
 CHAT_MODE = "gpt"
 AUTHORIZED_USERS = os.environ.get("AUTHORIZED_USERS").split(",")
 
