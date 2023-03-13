@@ -24,4 +24,7 @@ COPY . .
 
 RUN poetry install --only main --no-root
 
+# Gracefully shutdown the bot
+STOPSIGNAL SIGINT
+
 CMD [ "poetry", "run", "tgbot" ]
