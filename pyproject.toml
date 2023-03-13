@@ -14,8 +14,8 @@ edgegpt = {git = "https://github.com/acheong08/EdgeGPT.git"}
 pyrogram = "^2.0.102"
 revchatgpt = "^3.0.5"
 tgcrypto = "^1.2.5"
+uvloop = "^0.17.0"
 
-# Write black as a dev dependency
 [tool.poetry.dev-dependencies]
 black = "^23.1.0"
 
