@@ -23,31 +23,31 @@ AUTHORIZED_USERS = os.environ.get("AUTHORIZED_USERS").split(",")
 
 # Create a middleware to check if users username is in the authorized users list
 @app.on_message(filters.private & ~filters.me & ~filters.user(AUTHORIZED_USERS))
-async def auth(client, message: Message):
+async def auth(_, message: Message):
     await message.reply_text("You are not authorized to use this bot.")
     await message.stop_propagation()
 
 
 @app.on_message(filters.command("start"))
-async def start(client, message):
+async def start(_, message):
     welcome_text = "Welcome to TG-BOT"
     await message.reply_text(welcome_text)
 
 
 @app.on_message(filters.command("help"))
-async def help(client, message):
+async def help(_, message):
     help_text = """**Help**
 """
     await message.reply_text(help_text)
 
 
 @app.on_message(filters.command("ping"))
-async def ping(client, message):
+async def ping(_, message):
     await message.reply_text("Pong")
 
 
 @app.on_message(filters.command("echo"))
-async def echo(client, message):
+async def echo(_, message):
     if len(message.command) < 2:
         await message.reply_text("Usage: /echo [text]")
         return
@@ -56,7 +56,7 @@ async def echo(client, message):
 
 
 @app.on_message(filters.command("info"))
-async def info(client, message):
+async def info(_, message):
     if message.reply_to_message:
         user = message.reply_to_message.from_user
     else:
@@ -70,7 +70,7 @@ async def info(client, message):
 
 # Command /cm to change chat mode
 @app.on_message(filters.command("cm"))
-async def chat_mode(client, message):
+async def chat_mode(_, message):
     global CHAT_MODE
     if len(message.command) < 2:
         await message.reply_text("Current chat mode: " + CHAT_MODE)
@@ -100,7 +100,7 @@ async def delete(client, message: Message):
 
 # Command to give details of replied message
 @app.on_message(filters.command("msginfo"))
-async def msginfo(client, message):
+async def msginfo(_, message):
     if not message.reply_to_message:
         await message.reply_text("Reply to a message to get details")
         return
@@ -115,7 +115,7 @@ async def msginfo(client, message):
 
 
 @app.on_message(filters.create(lambda _, __, m: m.text and m.text.startswith("/")))
-async def unknown(client, message):
+async def unknown(_, message):
     # Generate random funny response
     random_responses = [
         "I don't know that command",
@@ -136,7 +136,7 @@ async def unknown(client, message):
 
 # For any sticker sent to the bot, reply with sticked id
 @app.on_message(filters.sticker)
-async def sticker(client, message: Message):
+async def sticker(_, message: Message):
     await message.reply_text(message.sticker.file_id)
 
 
