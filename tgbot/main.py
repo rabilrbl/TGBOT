@@ -11,8 +11,6 @@ from pyrogram import enums
 
 uvloop.install()
 
-uvloop.install()
-
 app = Client(
     "TGBOT",
     bot_token=os.environ.get("BOT_TOKEN"),
