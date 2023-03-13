@@ -1,11 +1,14 @@
 import os
 import random
 
+import uvloop
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from tgbot.libs.bingai import BingAI
 from tgbot.libs.chatgpt import ChatGPT
+
+uvloop.install()
 
 app = Client(
     "TGBOT",
