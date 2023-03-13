@@ -7,6 +7,9 @@ from pyrogram.types import Message
 
 from tgbot.libs.bingai import BingAI
 from tgbot.libs.chatgpt import ChatGPT
+from pyrogram import enums
+
+uvloop.install()
 
 uvloop.install()
 
@@ -17,8 +20,46 @@ app = Client(
     api_hash=os.environ.get("API_HASH"),
 )
 
+# Create a middleware to check if environment variables are set 
+# if not, bot will ask to set them
+@app.on_message(filters.private & ~filters.me)
+async def check_env(client, message: Message):
+    if not os.environ.get("AUTHORIZED_USERS"):
+        await message.reply_text("AUTHORIZED_USERS is not set. Please send /setvar AUTHORIZED_USERS")
+        await message.stop_propagation()
+    if not os.environ.get("BING_COOKIES"):
+        await message.reply_text("BING_COOKIES is not set. Please send /setvar BING_COOKIES")
+        await message.stop_propagation()
+    if not os.environ.get("OPENAI_EMAIL"):
+        await message.reply_text("OPENAI_EMAIL is not set. Please send /setvar OPENAI_EMAIL")
+        await message.stop_propagation()
+    if not os.environ.get("OPENAI_PASSWORD"):
+        await message.reply_text("OPENAI_PASSWORD is not set. Please send /setvar OPENAI_PASSWORD")
+        await message.stop_propagation()
+
+
+@app.on_message(filters.command("setvar"))
+async def setvar(client, message: Message):
+    if len(message.command) < 2:
+        await message.reply_text("Usage: /setvar [variable name]")
+        return
+    var = message.command[1]
+    value = client.ask(message.chat.id, f"Enter value for {var}")
+    os.environ[var] = value
+
+
 CHAT_MODE = "gpt"
 AUTHORIZED_USERS = os.environ.get("AUTHORIZED_USERS").split(",")
+
+@app.on_message(filters.private & ~filters.me & ~filters.command("ping"))
+async def set_typing_status(client, message: Message):
+    """Set typing status while processing a message."""
+    # Set typing status
+    await client.send_chat_action(message.chat.id, enums.chat_action.ChatAction.TYPING)
+    # Continue processing current message
+    await message.continue_propagation()
+    # Set typing status to False after processing current message
+    await client.send_chat_action(message.chat.id, enums.chat_action.ChatAction.CANCEL)
 
 
 # Create a middleware to check if users username is in the authorized users list
