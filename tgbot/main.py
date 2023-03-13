@@ -7,6 +7,7 @@ from pyrogram.types import Message
 
 from tgbot.libs.bingai import BingAI
 from tgbot.libs.chatgpt import ChatGPT
+from pyrogram import enums
 
 uvloop.install()
 
@@ -47,6 +48,16 @@ async def setvar(client, message: Message):
 
 CHAT_MODE = "gpt"
 AUTHORIZED_USERS = os.environ.get("AUTHORIZED_USERS").split(",")
+
+@app.on_message(filters.private & ~filters.me & ~filters.command("ping"))
+async def set_typing_status(client, message: Message):
+    """Set typing status while processing a message."""
+    # Set typing status
+    await client.send_chat_action(message.chat.id, enums.chat_action.ChatAction.TYPING)
+    # Continue processing current message
+    await message.continue_propagation()
+    # Set typing status to False after processing current message
+    await client.send_chat_action(message.chat.id, enums.chat_action.ChatAction.CANCEL)
 
 
 # Create a middleware to check if users username is in the authorized users list
