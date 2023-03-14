@@ -4,6 +4,9 @@ app = "tgbotderbl"
 kill_signal = "SIGINT"
 kill_timeout = 5
 
+[build]
+image = "ghcr.io/rabilrbl/tgbot:latest"
+
 [env]
 
 [experimental]
