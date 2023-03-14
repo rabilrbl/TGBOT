@@ -16,6 +16,7 @@ env:
 
 jobs:
   deploy:
+    if: github.event_name != 'pull_request'
     name: Deploy app
     runs-on: ubuntu-latest
     steps:
