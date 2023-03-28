@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       github.actor == 'dependabot[bot]'
-      && startsWith(github.ref, 'dependabot/pip/foo')
+      && startsWith(github.ref, 'dependabot/pip/')
     steps:
     - name: Auto-merge Dependabot PRs
       uses: actions/github-script@v3
