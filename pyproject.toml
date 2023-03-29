@@ -17,7 +17,7 @@ tgcrypto = "^1.2.5"
 uvloop = "^0.17.0"
 
 [tool.poetry.dev-dependencies]
-black = "^23.1.0"
+black = "^23.3.0"
 
 # Create run script to run main.py
 [tool.poetry.scripts]
