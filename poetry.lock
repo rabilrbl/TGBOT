@@ -660,14 +660,14 @@ wandb = ["numpy", "openpyxl (>=3.0.7)", "pandas (>=1.2.3)", "pandas-stubs (>=1.1
 
 [[package]]
 name = "openaiauth"
-version = "0.3.2"
+version = "0.3.6"
 description = "OpenAI Authentication Reverse Engineered"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "OpenAIAuth-0.3.2-py3-none-any.whl", hash = "sha256:9947eff587a152d5adadc9f59cfb2ca0ecde71815445f0e251a137c4d458ed79"},
-    {file = "OpenAIAuth-0.3.2.tar.gz", hash = "sha256:08f701806bf144eebbec474f23794db495e4096ede97a37a37619e683a390295"},
+    {file = "OpenAIAuth-0.3.6-py3-none-any.whl", hash = "sha256:a0da39a6ed1f2830b687432d222452add8ddd76e161f61fb1cd2ffecdc3ed8e4"},
+    {file = "OpenAIAuth-0.3.6.tar.gz", hash = "sha256:49a893aacd8756fe5a8d492b2c9bf6e1e775fa2260e47aac08d7b42044e4034d"},
 ]
 
 [package.dependencies]
@@ -891,20 +891,20 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "revchatgpt"
-version = "4.0.11"
+version = "4.1.1.1"
 description = "ChatGPT is a reverse engineering of OpenAI's ChatGPT API"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "revChatGPT-4.0.11-py3-none-any.whl", hash = "sha256:a6fa94d0d3bca8661c85aad3ec19df9056cf85c1b5f596986cfcf2ceffc17080"},
-    {file = "revChatGPT-4.0.11.tar.gz", hash = "sha256:42320eec04524a96f970d972ba24e93a0eccb8a346beb25bf5bd8d7a7c74b491"},
+    {file = "revChatGPT-4.1.1.1-py3-none-any.whl", hash = "sha256:0b6785036601803acdee2e161b36473d488e453806ba7a1bd1fcf97511e44049"},
+    {file = "revChatGPT-4.1.1.1.tar.gz", hash = "sha256:531f35359567eb4d3ac79fe985c876bf57deddb33d4c7597798d55f6e3839b52"},
 ]
 
 [package.dependencies]
 httpx = {version = "*", extras = ["socks"]}
 openai = "*"
-OpenAIAuth = "0.3.2"
+OpenAIAuth = "0.3.6"
 prompt-toolkit = "*"
 requests = {version = "*", extras = ["socks"]}
 tiktoken = ">=0.3.0"
@@ -1343,4 +1343,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "0595a9381b5642b6f2eb88f2a50ce0edd9ca86f7ff08bbd7cfa4ba45edb3e9eb"
+content-hash = "0e1df6363f085ac6d120cb631ce815e515dcd52c05704f449de293e12b37dc6f"
