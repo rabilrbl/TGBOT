@@ -891,14 +891,14 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "revchatgpt"
-version = "4.1.6"
+version = "4.2.0"
 description = "ChatGPT is a reverse engineering of OpenAI's ChatGPT API"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "revChatGPT-4.1.6-py3-none-any.whl", hash = "sha256:902ed7316289284a37218a792d8ab2eb1a93ee3a4d179893bb7a3b33ef87ab29"},
-    {file = "revChatGPT-4.1.6.tar.gz", hash = "sha256:f12d17e2fa9eaccf61db613405d02b3baee741f7c8de466a0e5bbbee3c4ba169"},
+    {file = "revChatGPT-4.2.0-py3-none-any.whl", hash = "sha256:6b119e6f0153beb751a52eb614604ed47bd206c5aaf1e016739e15373a9d3a65"},
+    {file = "revChatGPT-4.2.0.tar.gz", hash = "sha256:85d75629c040770e2ae68b691eb78ab4489e5fe3a7dc31b1e20423748c078d46"},
 ]
 
 [package.dependencies]
@@ -1340,4 +1340,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "692a4b6653125ae77c5763f06e7dc515675e34bf1345a0c6091dadb2fc7fdff4"
+content-hash = "c3100c483f58cf87dc59cdeac9f4af38c7e63ccc10a8713a98ad9e1f808558af"
