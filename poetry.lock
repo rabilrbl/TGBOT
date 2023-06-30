@@ -1034,13 +1034,13 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "revchatgpt"
-version = "6.5.0"
+version = "6.6.1"
 description = "ChatGPT is a reverse engineering of OpenAI's ChatGPT API"
 optional = false
 python-versions = "*"
 files = [
-    {file = "revChatGPT-6.5.0-py3-none-any.whl", hash = "sha256:e69e362a887ce11217eda8be5edc304ddcb3126aed438b49ba597d92dac247ce"},
-    {file = "revChatGPT-6.5.0.tar.gz", hash = "sha256:d4816cdff5a7463d43d7d4a155ddf8d8b8e05b0f741c36bc59ceb4dfe8875883"},
+    {file = "revChatGPT-6.6.1-py3-none-any.whl", hash = "sha256:8de106accbd7dc6a9e52beb2ad2a8349118c0d9e65ebce119c9e1dabec108744"},
+    {file = "revChatGPT-6.6.1.tar.gz", hash = "sha256:77bdabff78121878c0fb69f3b8def17949b7a69d591a999030aed9867eac0704"},
 ]
 
 [package.dependencies]
@@ -1053,6 +1053,7 @@ prompt-toolkit = "*"
 requests = {version = "*", extras = ["socks"]}
 rich = "*"
 tiktoken = ">=0.3.0"
+tls-client = ">=0.2.1"
 
 [[package]]
 name = "rfc3986"
@@ -1220,6 +1221,17 @@ requests = ">=2.26.0"
 
 [package.extras]
 blobfile = ["blobfile (>=2)"]
+
+[[package]]
+name = "tls-client"
+version = "0.2.1"
+description = "Advanced Python HTTP Client."
+optional = false
+python-versions = "*"
+files = [
+    {file = "tls_client-0.2.1-py3-none-any.whl", hash = "sha256:124a710952b979d5e20b4e2b7879b7958d6e48a259d0f5b83101055eb173f0bd"},
+    {file = "tls_client-0.2.1.tar.gz", hash = "sha256:473fb4c671d9d4ca6b818548ab6e955640dd589767bfce520830c5618c2f2e2b"},
+]
 
 [[package]]
 name = "tomli"
@@ -1502,4 +1514,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "5dc5516e071ac88aa15d160f9cb0f208e3bb5ca432294baaec7f5df68d50a22f"
+content-hash = "347f60eaa6914b0f8b499f4080f737d28273ce6b250c509241d438c98011972a"
