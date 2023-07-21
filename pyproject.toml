@@ -12,7 +12,7 @@ aiohttp = "^3.8.5"
 asyncio = "^3.4.3"
 edgegpt = {git = "https://github.com/acheong08/EdgeGPT.git"}
 pyrogram = "^2.0.106"
-revchatgpt = "^6.8.3"
+revchatgpt = "^6.8.6"
 tgcrypto = "^1.2.5"
 uvloop = "^0.17.0"
 
